@@ -1,0 +1,15 @@
+C:\Users\Elmavis\OneDrive\Univer\КБРС\Ready_labs\Lab2\Client_WPF\Client_WPF\bin\Debug\Client_WPF.exe.config
+C:\Users\Elmavis\OneDrive\Univer\КБРС\Ready_labs\Lab2\Client_WPF\Client_WPF\bin\Debug\Client_WPF.exe
+C:\Users\Elmavis\OneDrive\Univer\КБРС\Ready_labs\Lab2\Client_WPF\Client_WPF\bin\Debug\Client_WPF.pdb
+C:\Users\Elmavis\OneDrive\Univer\КБРС\Ready_labs\Lab2\Client_WPF\Client_WPF\obj\Debug\Client_WPF.csprojAssemblyReference.cache
+C:\Users\Elmavis\OneDrive\Univer\КБРС\Ready_labs\Lab2\Client_WPF\Client_WPF\obj\Debug\MainWindow.g.cs
+C:\Users\Elmavis\OneDrive\Univer\КБРС\Ready_labs\Lab2\Client_WPF\Client_WPF\obj\Debug\App.g.cs
+C:\Users\Elmavis\OneDrive\Univer\КБРС\Ready_labs\Lab2\Client_WPF\Client_WPF\obj\Debug\Client_WPF_MarkupCompile.cache
+C:\Users\Elmavis\OneDrive\Univer\КБРС\Ready_labs\Lab2\Client_WPF\Client_WPF\obj\Debug\Client_WPF_MarkupCompile.lref
+C:\Users\Elmavis\OneDrive\Univer\КБРС\Ready_labs\Lab2\Client_WPF\Client_WPF\obj\Debug\MainWindow.baml
+C:\Users\Elmavis\OneDrive\Univer\КБРС\Ready_labs\Lab2\Client_WPF\Client_WPF\obj\Debug\Client_WPF.g.resources
+C:\Users\Elmavis\OneDrive\Univer\КБРС\Ready_labs\Lab2\Client_WPF\Client_WPF\obj\Debug\Client_WPF.Properties.Resources.resources
+C:\Users\Elmavis\OneDrive\Univer\КБРС\Ready_labs\Lab2\Client_WPF\Client_WPF\obj\Debug\Client_WPF.csproj.GenerateResource.cache
+C:\Users\Elmavis\OneDrive\Univer\КБРС\Ready_labs\Lab2\Client_WPF\Client_WPF\obj\Debug\Client_WPF.csproj.CoreCompileInputs.cache
+C:\Users\Elmavis\OneDrive\Univer\КБРС\Ready_labs\Lab2\Client_WPF\Client_WPF\obj\Debug\Client_WPF.exe
+C:\Users\Elmavis\OneDrive\Univer\КБРС\Ready_labs\Lab2\Client_WPF\Client_WPF\obj\Debug\Client_WPF.pdb
