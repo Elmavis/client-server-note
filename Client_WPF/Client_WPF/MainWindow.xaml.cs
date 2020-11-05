@@ -30,7 +30,7 @@ namespace Client_WPF
         long closeKey;
         long n;
 
-        private long Calculate_d(long m)
+        private long CalculateCloseKey(long m)
         {
             long d = m - 1;
 
@@ -44,7 +44,7 @@ namespace Client_WPF
             return d;
         }
 
-        private long Calculate_e(long d, long m)
+        private long CalculateOpenKey(long d, long m)
         {
             long e = 10;
 
@@ -63,22 +63,23 @@ namespace Client_WPF
         {
             n = p * q;
             long m = (p - 1) * (q - 1);
-            d = Calculate_d(m);
-            e = Calculate_e(d, m);
+            d = CalculateCloseKey(m);
+            e = CalculateOpenKey(d, m);
         }
 
-        private void SendOpenKeyToServer(long e, long n)
+        private void SendOpenKeyToServer(long openKey, long n)
         {
+            //адрес сервера
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://localhost:44393/Home/PostRSA");
             request.Method = "Post";
 
-            string data = "openKey=" + e + "&n=" + n;
-            request.ContentLength = data.Length;
+            string dataToSend = "openKey=" + openKey + "&n=" + n;
+            request.ContentLength = dataToSend.Length;
             request.ContentType = "application/x-www-form-urlencoded";
-            byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(data);
+            byte[] dataInByteArray = System.Text.Encoding.UTF8.GetBytes(dataToSend);
             using (Stream requestStream = request.GetRequestStream())
             {
-                requestStream.Write(byteArray, 0, byteArray.Length);
+                requestStream.Write(dataInByteArray, 0, dataInByteArray.Length);
             }
 
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
@@ -95,6 +96,10 @@ namespace Client_WPF
                     {
                         lMessage.Content = sendingResult;
                     }
+                    else
+                    {
+                        lMessage.Content = "";
+                    }
                 }
             }
         }
@@ -109,8 +114,6 @@ namespace Client_WPF
 
         private void btRSA_Click(object sender, RoutedEventArgs e)
         {
-            // Некруто, что p и q всегда постоянны, в итоге будет круто заменить это 
-            // на массив простых чисел с автовыбором
             RSAmanipulations();
         }
 
@@ -134,7 +137,7 @@ namespace Client_WPF
 
                 BigInteger n_ = new BigInteger((int)n);
                 byte endNum = (byte)(bi % n_);
-                sessionKeyResult.Add(endNum);  //а что, если выйдет за границу byte?
+                sessionKeyResult.Add(endNum);
             }
 
             return sessionKeyResult.ToArray();
@@ -163,6 +166,7 @@ namespace Client_WPF
                     }
                     else
                     {
+                        lMessage.Content = "";
                         return ParseSessionKey(arr[1]);
                     }
                 }
@@ -183,25 +187,20 @@ namespace Client_WPF
 
         #region fileOpen
 
-        public string FromAes256(byte[] shifr)
+        public string AesDecrypt(byte[] ecryptedText)
         {
-            byte[] bytesIv = new byte[16];
-            byte[] mess = new byte[shifr.Length - 16];
-            //Списываем соль
-            for (int i = shifr.Length - 16, j = 0; i < shifr.Length; i++, j++)
-                bytesIv[j] = shifr[i];
-            //Списываем оставшуюся часть сообщения
-            for (int i = 0; i < shifr.Length - 16; i++)
-                mess[i] = shifr[i];
-            //Объект класса Aes
+            byte[] bytes4part = new byte[16];
+            byte[] bytes1_3parts = new byte[ecryptedText.Length - 16];
+            for (int i = ecryptedText.Length - 16, j = 0; i < ecryptedText.Length; i++, j++)
+                bytes4part[j] = ecryptedText[i];
+            for (int i = 0; i < ecryptedText.Length - 16; i++)
+                bytes1_3parts[i] = ecryptedText[i];
             Aes aes = Aes.Create();
-            //Задаем тот же ключ, что и для шифрования
+
             aes.Key = sessionKey;
-            //Задаем соль
-            aes.IV = bytesIv;
-            //Строковая переменная для результата
+            aes.IV = bytes4part;
             string text = "";
-            byte[] data = mess;
+            byte[] data = bytes1_3parts;
             ICryptoTransform crypt = aes.CreateDecryptor(aes.Key, aes.IV);
             using (MemoryStream ms = new MemoryStream(data))
             {
@@ -209,7 +208,6 @@ namespace Client_WPF
                 {
                     using (StreamReader sr = new StreamReader(cs))
                     {
-                        //Результат записываем в переменную text в вие исходной строки
                         text = sr.ReadToEnd();
                     }
                 }
@@ -244,14 +242,15 @@ namespace Client_WPF
                     while ((line = reader.ReadLine()) != null)
                         textResult += line;
 
-                    string[] arr = textResult.Split('|');
-                    if (!arr[0].Equals("OK"))
+                    string[] resultParts = textResult.Split('|');
+                    if (!resultParts[0].Equals("OK"))
                     {
-                        lMessage.Content = arr[1];
+                        lMessage.Content = resultParts[1];
                     }
                     else
                     {
-                        tbText.Text = FromAes256(FromStringToByteArr(arr[1]));
+                        lMessage.Content = "";
+                        tbText.Text = AesDecrypt(FromStringToByteArr(resultParts[1]));
                     }
                 }
             }

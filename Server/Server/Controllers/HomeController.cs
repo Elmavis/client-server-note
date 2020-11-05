@@ -92,10 +92,10 @@ namespace Server.Controllers
 
         #region FileSending
 
-        private string ByteArrayToString(byte [] arr)
+        private string ByteArrayToString(byte [] bytes)
         {
             string result = "";
-            foreach(byte elem in arr)
+            foreach(byte elem in bytes)
             {
                 result += elem + "-";
             }
@@ -103,10 +103,9 @@ namespace Server.Controllers
             return result.Substring(0, result.Length - 1);
         }
 
-        //возвращает массив байтов
         private byte[] EncryptText(string text)
         {
-            return ToAes256(text); //TODO сделать нормальнье 
+            return AesEncrypt(text);
         }
 
         private void EncryptFiles()
@@ -127,13 +126,10 @@ namespace Server.Controllers
             }
         }
 
-        public static byte[] ToAes256(string src)
+        public static byte[] AesEncrypt(string src)
         {
-            //Объявляем объект класса AES
             Aes aes = Aes.Create();
-            //Генерируем соль
             aes.GenerateIV();
-            //Присваиваем ключ. 
             aes.Key = HomeController.sessionKey;
             byte[] encrypted;
             ICryptoTransform crypt = aes.CreateEncryptor(aes.Key, aes.IV);
@@ -146,10 +142,8 @@ namespace Server.Controllers
                         sw.Write(src);
                     }
                 }
-                //Записываем в переменную encrypted зашиврованный поток байтов
                 encrypted = ms.ToArray();
             }
-            //Возвращаем поток байт + крепим соль
             return encrypted.Concat(aes.IV).ToArray();
         }
 
@@ -188,5 +182,4 @@ namespace Server.Controllers
 * С: если такой файл имеется, то:
 * С: Берёт зашифрованную версию, делает её строкой
 * С: Отправляет полученную строку в виде "OK|*строка*"
-* 
 */

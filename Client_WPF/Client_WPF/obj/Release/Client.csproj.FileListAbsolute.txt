@@ -1,0 +1,15 @@
+C:\Users\Elmavis\OneDrive\Univer\КБРС\Ready_labs\Lab2\git_repo\client-server-note\Client_WPF\Client_WPF\bin\Release\Client_WPF.exe.config
+C:\Users\Elmavis\OneDrive\Univer\КБРС\Ready_labs\Lab2\git_repo\client-server-note\Client_WPF\Client_WPF\bin\Release\Client_WPF.exe
+C:\Users\Elmavis\OneDrive\Univer\КБРС\Ready_labs\Lab2\git_repo\client-server-note\Client_WPF\Client_WPF\bin\Release\Client_WPF.pdb
+C:\Users\Elmavis\OneDrive\Univer\КБРС\Ready_labs\Lab2\git_repo\client-server-note\Client_WPF\Client_WPF\obj\Release\Client.csprojAssemblyReference.cache
+C:\Users\Elmavis\OneDrive\Univer\КБРС\Ready_labs\Lab2\git_repo\client-server-note\Client_WPF\Client_WPF\obj\Release\MainWindow.g.cs
+C:\Users\Elmavis\OneDrive\Univer\КБРС\Ready_labs\Lab2\git_repo\client-server-note\Client_WPF\Client_WPF\obj\Release\App.g.cs
+C:\Users\Elmavis\OneDrive\Univer\КБРС\Ready_labs\Lab2\git_repo\client-server-note\Client_WPF\Client_WPF\obj\Release\Client_WPF_MarkupCompile.cache
+C:\Users\Elmavis\OneDrive\Univer\КБРС\Ready_labs\Lab2\git_repo\client-server-note\Client_WPF\Client_WPF\obj\Release\Client_WPF_MarkupCompile.lref
+C:\Users\Elmavis\OneDrive\Univer\КБРС\Ready_labs\Lab2\git_repo\client-server-note\Client_WPF\Client_WPF\obj\Release\MainWindow.baml
+C:\Users\Elmavis\OneDrive\Univer\КБРС\Ready_labs\Lab2\git_repo\client-server-note\Client_WPF\Client_WPF\obj\Release\Client_WPF.g.resources
+C:\Users\Elmavis\OneDrive\Univer\КБРС\Ready_labs\Lab2\git_repo\client-server-note\Client_WPF\Client_WPF\obj\Release\Client_WPF.Properties.Resources.resources
+C:\Users\Elmavis\OneDrive\Univer\КБРС\Ready_labs\Lab2\git_repo\client-server-note\Client_WPF\Client_WPF\obj\Release\Client.csproj.GenerateResource.cache
+C:\Users\Elmavis\OneDrive\Univer\КБРС\Ready_labs\Lab2\git_repo\client-server-note\Client_WPF\Client_WPF\obj\Release\Client.csproj.CoreCompileInputs.cache
+C:\Users\Elmavis\OneDrive\Univer\КБРС\Ready_labs\Lab2\git_repo\client-server-note\Client_WPF\Client_WPF\obj\Release\Client_WPF.exe
+C:\Users\Elmavis\OneDrive\Univer\КБРС\Ready_labs\Lab2\git_repo\client-server-note\Client_WPF\Client_WPF\obj\Release\Client_WPF.pdb
